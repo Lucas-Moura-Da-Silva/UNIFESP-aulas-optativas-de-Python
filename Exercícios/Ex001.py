@@ -8,4 +8,6 @@ peso = float(input('Qual é o seu peso em Kg?'))
 #Calculo do IMC
 imc = peso / (alt)**2
 
+print('-='*20)
+
 print(f'{nome} tem {peso}Kg e altura de {alt}m e portanto o IMC é de {imc:.2f}.')

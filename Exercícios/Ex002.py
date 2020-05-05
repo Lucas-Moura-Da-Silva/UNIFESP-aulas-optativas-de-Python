@@ -5,5 +5,7 @@ metro = float(input('Qual valor em metros(m) você quer converter em centimetros
 #calculo de converção
 cm = metro * 100
 
+print('-='*25)
+
 #converção de metros para centimetros
 print(f'O valor de {metro}m cofertido ficará em {cm}cm.')
