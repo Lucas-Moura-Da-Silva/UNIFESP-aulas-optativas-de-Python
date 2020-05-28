@@ -8,7 +8,7 @@ primos = list()
 naoprimos = list()
 
 for repetição in range(1, 11):
-    numero = int(input(f'Digite o {repetição}º número:'))
+    numero = int(input(f'Digite o {repetição}º número:'))#input's
     primo = True
 
     if numero >= 2:
@@ -24,6 +24,7 @@ for repetição in range(1, 11):
     else:
         naoprimos.append(numero)
 
+#imprimindo resusltados
 print(f"Dos números que você digitou, os numeros primos são {primos}.".replace('[','').replace(
     ']', '')) #trocaresmos o '[' e os ']' por um espaço vazio
 

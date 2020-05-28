@@ -7,3 +7,62 @@ a. Quantas pessoas foram cadastradas
 b. Qual é o peso médio das pessoas
 c. Qual é a altura média das pessoas
 d. Qual é IMC médio das pessoas'''
+
+#dicionario
+pessoa = dict()
+#lista
+dados_pessoais = list()
+
+#input's
+quantidade_de_pessoas = int(input('Quantas pessoas serão cadastradas?'))
+print('-='*25)
+
+for repetições in range(1, quantidade_de_pessoas+1):
+    nome = pessoa['Nome'] = str(input(f"Nome da {repetições}º pessoa que irá se cadastrar:")).capitalize()
+    sexo = pessoa['Sexo'] = str(input(f"Sexo do(a) {nome}:"))
+    peso = pessoa['Peso'] = float(input(f"Peso do(a) {nome} em Kg:"))
+    altura = pessoa['Altura'] = float(input(f"Altura do(a) {nome} em metros(m):"))
+
+    calc_imc = (peso) / (altura)**2
+
+    IMC = pessoa['IMC'] = float(f"{calc_imc:.2f}")
+
+    dados_pessoais.append(pessoa.copy())
+    print('-='*25)
+
+#cada pessoa cadastrada
+for repetições in dados_pessoais:
+    for indice, valor in repetições.items():
+        print(f"{indice}:{valor}")
+print('-'*40)
+
+#a. Quantas pessoas foram cadastradas
+numero_de_cadastros = len(dados_pessoais)
+print(f"Foram cadastrados {numero_de_cadastros} pessoa(s).")
+print('='*40)
+
+#b. Qual é o peso médio das pessoas
+soma_peso = 0
+for repetições in dados_pessoais:
+    soma_peso += repetições['Peso']
+
+media_peso = soma_peso / numero_de_cadastros
+print(f"A média dos pesos das pessoas foi de {media_peso:.2f}Kg.")
+print('='*40)
+
+#c. Qual é a altura média das pessoas
+soma_altura = 0
+for repetições in dados_pessoais:
+    soma_altura += repetições['Altura']
+
+media_altura = soma_altura / numero_de_cadastros
+print(f"A média das alturas das pessoas doi de {media_altura:.2f}m.")
+print('='*40)
+
+#d. Qual é IMC médio das pessoas
+soma_IMC = 0
+for repetições in dados_pessoais:
+    soma_IMC += repetições['IMC']
+
+media_IMC = soma_IMC / numero_de_cadastros
+print(f"A média dos IMC's foi de {media_IMC:.2f}.")
