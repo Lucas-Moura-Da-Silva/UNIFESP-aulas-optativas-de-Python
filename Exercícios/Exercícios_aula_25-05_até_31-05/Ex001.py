@@ -8,6 +8,16 @@ d. O nota média da sala.'''
 '''problemas:
 Se as notas forem iguais, a ultima não será contabilizada.'''
 
+#cores
+cores = {'limpa':'\033[m',
+         'branco':'\033[1;30m',
+         'vermelho':'\033[1;31m',
+         'verde':'\033[1;32m',
+         'amarelo':'\033[1;33m',
+         'azul':'\033[1;34m',
+         'roxo':'\033[1;35m',
+         'ciano':'\033[1;36m'}
+
 #lista dos alunos
 alunos = list()
 
@@ -16,46 +26,49 @@ aluno = dict()
 
 #estrutura de repetição-WHILE
 while True:
-    aluno['nome'] = str(input('Nome do aluno:'))
-    aluno['nota da P1'] = float(input(f"Nota do {aluno['nome']}:"))
+    aluno['nome'] = str(input('Nome do aluno:')).title()
+    aluno['nota da P1'] = float(input(f"Nota do {cores['vermelho']}{aluno['nome']}{cores['limpa']}:"))
     alunos.append(aluno.copy())
 
+    print(f"{cores['ciano']}-&{cores['limpa']}"*30)
     cont = str(input('Você quer continuar anotando as notas e os nomes dos alunos?')).upper()
     if 'N' in cont:
         break
 
-print('-='*25)
+print(f"{cores['ciano']}-={cores['limpa']}"*25)
 
 #a. Quantas alunos foram cadastradas
 alunosNumero = len(alunos) #número de alunos
 
-print(f"Foram cadastrador {alunosNumero} aluno(s).")
+print(f"Foram cadastrador {cores['roxo']}{alunosNumero}{cores['limpa']} aluno(s).")
 
-print('-='*25)
+print(f"{cores['ciano']}-={cores['limpa']}"*25)
 
 #b. O nome do aluno com maior nota
-maior = 0
+maior = alunos[0]['nota da P1']
+alunoMaior = alunos[0]['nome']
 #repetição em alunos
 for aluno in alunos:
     if (aluno['nota da P1']) > maior:
         maior = aluno['nota da P1']
         alunoMaior = aluno['nome']
 
-print(f"O aluno com maior nota foi {alunoMaior}.")
+print(f"O aluno com maior nota foi {cores['azul']}{alunoMaior}{cores['limpa']}.")
 
-print('-='*25)
+print(f"{cores['ciano']}-={cores['limpa']}"*25)
 
 #c. O nome da pessoa menor nota
-menor = maior
+menor = alunos[0]['nota da P1']
+alunoMenor = alunos[0]['nome']
 #repetição em alunos
 for aluno in alunos:
     if (aluno['nota da P1']) < menor:
         menor = aluno['nota da P1']
         alunoMenor = aluno['nome']
 
-print(f"O aluno com maior nota foi {alunoMenor}.")
+print(f"O aluno com menor nota foi {cores['amarelo']}{alunoMenor}{cores['limpa']}.")
 
-print('-='*25)
+print(f"{cores['ciano']}-={cores['limpa']}"*25)
 
 #d. O nota média da sala.
 soma = 0
@@ -64,4 +77,4 @@ for aluno in alunos:
     soma += aluno['nota da P1']
 mediaSala = soma/alunosNumero
 
-print(f"A média da sala é {mediaSala:.2f}.")
+print(f"A média da sala é {cores['verde']}{mediaSala:.2f}{cores['limpa']}.")
