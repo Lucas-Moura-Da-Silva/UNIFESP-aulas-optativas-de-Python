@@ -60,6 +60,7 @@ print(f"{cores['ciano']}-={cores['limpa']}"*25)
 #c. O nome da pessoa menor nota
 menor = alunos[0]['nota da P1']
 alunoMenor = alunos[0]['nome']
+
 #repetição em alunos
 for aluno in alunos:
     if (aluno['nota da P1']) < menor:
@@ -72,6 +73,7 @@ print(f"{cores['ciano']}-={cores['limpa']}"*25)
 
 #d. O nota média da sala.
 soma = 0
+
 #repetição em alunos
 for aluno in alunos:
     soma += aluno['nota da P1']
