@@ -17,6 +17,9 @@ cores = {'limpa':'\033[m',
 #importação do numpy
 import numpy as np
 
+#importando da biblioteca scipy a função factorial
+from scipy.special import factorial
+
 #input da questão
 angle_graus = float(input("Qual ângulo em grau você quer saber o cosseno e o seno?"))
 
@@ -25,16 +28,19 @@ angle_rad = np.math.radians(angle_graus)
 
 print(f"{cores['ciano']}-={cores['limpa']}"*30)
 
-cos = 0
-for repeticoes in range(0, 51):
+#expoentes
+exp = np.arange(0,100,2)
 
-    if repeticoes % 2 == 0:
-        #Uma parte da série de Taylor quando é positiva
-        cos += (angle_rad ** (2 * repeticoes)) / (np.math.factorial(2 * repeticoes))
+x = angle_rad**exp
 
-    else:
-        #Outra parte da série de Taylor quando é negativa
-        cos -= (angle_rad) ** (2 * repeticoes) / np.math.factorial(2 * repeticoes)
+fact = factorial(exp)
+
+#expressões da série de Taylor
+termos = x/fact
+termos[1::2]= -1*termos[1::2]
+
+#resultado da série de Taylor
+cos = termos.sum()
 
 # imprimindo o cos(x)
 print(f"O cosseno de {cores['roxo']}{angle_graus}°{cores['limpa']} ou {cores['amarelo']}"
